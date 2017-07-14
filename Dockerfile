@@ -23,9 +23,10 @@
 FROM centos:7
 MAINTAINER jitakirin <jitakirin@gmail.com>; jyliu <jyliu@dataman-inc.com>
 
-RUN yum install -y rpmdevtools yum-utils gcc openssl-devel make && \
+RUN yum install -y rpmdevtools yum-utils gcc openssl-devel epel-release make && \
     yum clean all && \
     rm -r -f /var/cache/*
+
 ADD docker-init.sh docker-rpm-build.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-*.sh
 
